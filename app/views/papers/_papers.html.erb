@@ -1,0 +1,21 @@
+<ul class="list-unstyled">
+  <% @papers.each do |paper| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(paper.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to paper.user.name, user_path(paper.user) %> <span class="text-muted">posted at <%= paper.created_at %></span>
+        </div>
+        <div>
+          <p><%= paper.content %></p>
+        </div>
+        <div>
+          <% if current_user == paper.user %>
+            <%= link_to "Delete", paper, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate papers %>
+</ul>
