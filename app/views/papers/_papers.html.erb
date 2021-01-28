@@ -1,7 +1,12 @@
 <ul class="list-unstyled">
   <% @papers.each do |paper| %>
     <li class="media mb-3">
-      <img class="mr-2 rounded" src="<%= gravatar_url(paper.user, { size: 50 }) %>" alt="">
+      <% if paper.user.image.attached? %>
+        <%= image_tag paper.user.image, width: "50px", height: "50px", class: "mr-2 rounded" %>
+      <% else %>
+        <img class="mr-2 rounded" src="<%= gravatar_url(paper.user, { size: 50 }) %>" alt="">
+      <% end %>
+      
       <div class="media-body">
         <div>
           <%= link_to paper.user.name, user_path(paper.user) %> <span class="text-muted">posted at <%= paper.created_at %></span>

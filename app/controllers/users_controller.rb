@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @papers = @user.papers.order(id: :desc).page(params[:page])
+    @papers = @user.papers.order(id: :desc).page(params[:page]).per(10)
     counts(@user)
   end
 
@@ -27,14 +27,29 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(id: params[:id])
   end
 
   def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      flash[:success] = "プロフィールは正常に更新されました。"
+      redirect_to @user
+    else
+      flash.now[:danger] = "プロフィールは正常に更新されませんでした。"
+      render :edit
+    end
+  end
+
+  def download
+    @user = User.find_by(id: params[:id])
+    data = @user.image.download
+    send_data(data, type: "image/png", filename: "download.jpg")
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
 end

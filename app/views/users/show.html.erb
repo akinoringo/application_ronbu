@@ -1,3 +1,6 @@
+<div class="pb-5">
+  <h2 class="text-center">マイプロフィール</h2>
+</div>
 <div class="row">
   <aside class="col-sm-4">
     <div class="card">
@@ -5,15 +8,22 @@
         <h3 class="card-title"><%= @user.name %></h3>
       </div>
       <div class="card-body">
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image, width: "120%", height: "120%" , class: "rounded img-fluid" %>
+        <% else %>
+          <img class="mr-2 img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <% end %>
       </div>
+      <% if current_user == @user %>
+        <%= link_to 'プロフィール編集', edit_user_path(@user), class: "mb-2 text-center" %>
+      <% end %>
+      <%= link_to "download", "/users/#{@user.id}/download" %>
     </div>
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">papers  <span class="badge badge-secondary"><%= @count_papers %></span></a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
     </ul>
+    <%= render "papers/papers", papers: @papers %>
   </div>
 </div>

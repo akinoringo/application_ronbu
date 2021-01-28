@@ -11,12 +11,17 @@
       <div class="form-group">
         <%= f.label :name, 'Name' %>
         <%= f.text_field :name, class: 'form-control' %>
-      </div>
+      </div>  
 
       <div class="form-group">
         <%= f.label :email, 'Email' %>
         <%= f.email_field :email, class: 'form-control' %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :image, 'Image' %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>   
 
       <div class="form-group">
         <%= f.label :password, 'Password' %>
@@ -27,6 +32,8 @@
         <%= f.label :password_confirmation, 'Confirmation' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+
+     
 
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
     <% end %>

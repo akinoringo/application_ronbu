@@ -24,7 +24,7 @@ class PapersController < ApplicationController
   private
 
   def paper_params
-    params.require(:paper).permit(:content)
+    params.require(:paper).permit(:content, :image)
   end
 
   def correct_user

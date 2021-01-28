@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :papers
 
+  has_one_attached :image
+
 end

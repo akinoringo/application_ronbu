@@ -1,19 +1,40 @@
 <% if logged_in? %>
+  <div class="pb-5">
+    <h2 class="text-center">論文一覧</h2>
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>タグ</th>
+    </tr>
+    <% @papers.each do |paper| %>
+      <tr>
+        <td><%= paper.id %></td>
+        <td><%= paper.content %></td>
+        <td>タグ</td>
+      </tr>
+    <% end %>
+  </table>
+
   <div class="row">
     <aside class="col-sm-4">
       <%= form_with(model: @paper, local: true) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.file_field :image, class: 'form-control'%>
         </div>
+        
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
     </aside>
     <div class="col-sm-8">
       <%= render 'papers/papers', papers: @papers %>
     </div>
+    
   </div>
 <% else %>
-  <div class="center jumbotron">
+  <div class="center jumbotron jumbotron-extend">
     <div class="text-center">
       <h1>Welcome to the Ronbu</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>

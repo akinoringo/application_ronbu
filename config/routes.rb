@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
 
   get "signup", to: "users#new"
+
+  get "users/:id/download", to: "users#download"
   resources :users, except: [:destroy, :new]
 
   resources :papers, only: [:create, :destroy]
