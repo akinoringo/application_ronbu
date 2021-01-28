@@ -34,10 +34,42 @@
     
   </div>
 <% else %>
-  <div class="center jumbotron jumbotron-extend">
-    <div class="text-center">
-      <h1>Welcome to the Ronbu</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+  <div class="center jumbotron-extend">
+    <div class="row">
+      <div class="col-sm-7 offset-sm-1 bg-light rounded py-2 margin-top">
+        <div class="text-center py-4">
+          <h3>『Ronbu』で、論文管理をもっと簡単に。</h3>
+        </div>
+
+        <%= form_with(model: @user, local: true) do |f| %>
+          <%= render "layouts/error_messages", model: f.object %>
+          
+          <div class="form-group">
+            <%= f.label :name, 'Name' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>  
+
+          <div class="form-group">
+            <%= f.label :email, 'Email' %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, 'Password' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, 'Confirmation' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+
+          <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
     </div>
   </div>
+  <h2 class="py-4 bg-light">『Ronbu』は、<br>
+    あなたの論文管理をサポートします。
+  </h2>
 <% end %>
