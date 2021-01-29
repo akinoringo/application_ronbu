@@ -1,5 +1,5 @@
 <% if users.any? %>
-  <ul class="list-unstyled">
+  <ul class="list-unstyled mx-auto" style="width: 50%">
     <% users.each do |user| %>
       <li class="media mb-2">
         <% if user.image.attached? %>
@@ -7,7 +7,7 @@
         <% else %>
           <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
         <% end %>
-        <div class="media-body">
+        <div class="media-body ml-3">
           <h4>
             <%= user.name %>
           </h4>

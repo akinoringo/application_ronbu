@@ -15,9 +15,13 @@
  */
 
 .jumbotron-extend {
-  background: url("/Main-Image.jpg");
+  background: url("/main1.jpg");
   background-size: cover;
   height: 100vh;
+}
+
+.opacity05 {
+  background-color: transparent;
 }
 
 .container-rev {
@@ -26,4 +30,8 @@
 
 .margin-top {
   margin-top: 10vh;
+}
+
+body {
+  min-height: 100vh;
 }

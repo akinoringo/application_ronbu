@@ -1,8 +1,8 @@
 <div class="pb-5">
   <h2 class="text-center">マイプロフィール</h2>
 </div>
-<div class="row">
-  <aside class="col-sm-4">
+<div class="row mb-4">
+  <aside class="col-sm-4 offset-sm-4">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
@@ -20,10 +20,4 @@
       <%= link_to "download", "/users/#{@user.id}/download" %>
     </div>
   </aside>
-  <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">papers  <span class="badge badge-secondary"><%= @count_papers %></span></a></li>
-    </ul>
-    <%= render "papers/papers", papers: @papers %>
-  </div>
 </div>

@@ -18,16 +18,24 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
 
-    <div class="container">
+    <div class="container min-vh-100">
+      <% if logged_in? %>
+        <header class="mb-4">
+          <%= render 'layouts/navbar' %>
+        </header>
+      <% else %>
+        <header>
+          <%= render 'layouts/navbar' %>
+        </header>
+      <% end %>
       <%= render 'layouts/flash_messages' %>
       
       <%= yield %>
+      
     </div>
     <div id="copyright" class="text-center">Copyright © 2021 Ronbu All Rights Reserved</div>
+    
 
   </body>
 </html>

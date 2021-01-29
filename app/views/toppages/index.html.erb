@@ -2,23 +2,10 @@
   <div class="pb-5">
     <h2 class="text-center">論文一覧</h2>
   </div>
-  <table class="table table-striped">
-    <tr>
-      <th>ID</th>
-      <th>タイトル</th>
-      <th>タグ</th>
-    </tr>
-    <% @papers.each do |paper| %>
-      <tr>
-        <td><%= paper.id %></td>
-        <td><%= paper.content %></td>
-        <td>タグ</td>
-      </tr>
-    <% end %>
-  </table>
+
 
   <div class="row">
-    <aside class="col-sm-4">
+    <aside class="col-sm-10 offset-sm-1 mb-4">
       <%= form_with(model: @paper, local: true) do |f| %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
@@ -28,14 +15,27 @@
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
     </aside>
-    <div class="col-sm-8">
-      <%= render 'papers/papers', papers: @papers %>
+    <div class="col-sm-10 offset-sm-1">
+      <table class="table table-striped">
+        <tr>
+          <th>作成者</th>
+          <th>論文</th>
+          <th>説明</th>
+        </tr>
+        <% @papers.each do |paper| %>
+          <tr>
+            <td><%= paper.user.name %></td>
+            <td>タイトル</td>
+            <td><%= paper.content %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
     
   </div>
 <% else %>
   <div class="center jumbotron-extend">
-    <div class="row">
+    <div class="row opacity05">
       <div class="col-sm-7 offset-sm-1 bg-light rounded py-2 margin-top">
         <div class="text-center py-4">
           <h3>『Ronbu』で、論文管理をもっと簡単に。</h3>
@@ -69,7 +69,41 @@
       </div>
     </div>
   </div>
-  <h2 class="py-4 bg-light">『Ronbu』は、<br>
-    あなたの論文管理をサポートします。
-  </h2>
+
+  <h2 class="py-4 bg-light">『Ronbu』は、あなたの論文管理をサポートします。</h2>
+
+  <h3 class="text-center my-4">『Ronbu』の特徴</h3>
+
+  <div class="row">
+    <aside class="col-sm-6">
+      <img class="img-fluid" src="/main2.jpg" alt="サポート">
+    </aside>
+    <aside class="col-sm-6">
+      <h4 class="text-center">論文管理はアプリに任せて</h4>
+      <p class="text-center">PDFの論文をすぐに保存出来るから安心</p>
+    </aside>
+  </div>
+  <div class="row">
+    <aside class="col-sm-6">
+      <h4 class="text-center">論文管理はアプリに任せて</h4>
+      <p class="text-center">PDFの論文をすぐに保存出来るから安心</p>
+    </aside>
+    <aside class="col-sm-6">
+      <img class="img-fluid" src="/main2.jpg" alt="サポート">
+    </aside>
+  </div>
+
+  <h3 class="text-center my-4">『Ronbu』の使い方</h3>
+  <h4 class="text-center my-3">①会員登録</h4>
+  <h4 class="text-center my-3">②論文登録</h4>
+  <h4 class="text-center my-3">③論文のジャンル登録</h4>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <img class="img-fluid" src="/main3.jpg" alt="サポート">
+    </div>
+  </div>
+
+
+
 <% end %>
