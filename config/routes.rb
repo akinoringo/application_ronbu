@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   get "signup", to: "users#new"
 
   get "users/:id/download", to: "users#download"
+
+  get "papers/:id/download", to: "papers#download"
+
   resources :users, except: [:destroy, :new]
 
-  resources :papers, only: [:create, :destroy]
+  resources :papers, only: [:create, :destroy, :show, :edit, :update]
 
 end

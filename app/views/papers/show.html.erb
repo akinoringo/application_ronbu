@@ -1,0 +1,26 @@
+<div class="text-center pb-5">
+  <h1>論文詳細</h1>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>作成者</th><td><%= @paper.user.name %></td>
+  </tr>
+  <tr>
+    <th>更新日時</th><td><%= @paper.updated_at %></td>
+  </tr>  
+  <tr>
+    <th>タイトル</th><td>タイトル</td>
+  </tr>
+  <tr>
+    <th>説明</th><td><%= @paper.content %></td>
+  </tr>
+  <tr>
+    <th>ファイル</th><td><%= link_to "PDF ダウンロード", "/papers/#{@paper.id}/download" %></td>
+  </tr>      
+</table>
+<% if current_user == @paper.user %>
+  <div class="text-right mb-2">
+    <%= link_to '編集する', edit_paper_path(@paper) %>
+  </div>
+<% end %>

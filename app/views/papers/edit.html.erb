@@ -1,0 +1,19 @@
+<div class="text-center">
+  <h1>論文の編集</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @paper, local: true) do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :content, 'Name' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>  
+      
+      <%= f.submit '更新', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

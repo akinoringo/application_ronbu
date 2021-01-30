@@ -3,5 +3,10 @@ class Paper < ApplicationRecord
 
   validates :content, presence: true, length: {maximum: 255}
 
-  has_one_attached :image
+  has_one_attached :pdf
+
+  def self.search(search)
+    return Paper.all unless search
+    Paper.where(['content LIKE ?', "%#{search}%"])
+  end
 end
