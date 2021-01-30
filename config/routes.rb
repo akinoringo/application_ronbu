@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
+  post "guestlogin", to: "sessions#guestlogin"
+
+
   get "signup", to: "users#new"
 
   get "users/:id/download", to: "users#download"

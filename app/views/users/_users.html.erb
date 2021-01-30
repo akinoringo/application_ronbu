@@ -5,7 +5,7 @@
         <% if user.image.attached? %>
           <%= image_tag user.image, width: "100px", height: "100px" , class: "mr-2 rounded" %>
         <% else %>
-          <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
+          <img src="/noimage.jpg" class="mr-2 rounded" style="width: 100px; height: 100px;" alt="">
         <% end %>
         <div class="media-body ml-3">
           <h4>

@@ -6,12 +6,23 @@
   <div class="row">
     <aside class="col-sm-12 mb-4">
       <%= form_with(model: @paper, local: true) do |f| %>
-        
         <div class="form-group">
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_area :title, class: 'form-control', rows: 1 %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :content, '説明' %>
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
 
         <div class="form-group">
+          <%= f.label :tag, 'ジャンル' %>
+          <%= f.text_area :tag, class: 'form-control', rows: 1 %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :pdf, 'PDFを選択' %>
           <%= f.file_field :pdf, class: 'form-control' %>
         </div>        
         
@@ -42,9 +53,17 @@
         <% @papers.each do |paper| %>
           <tr>
             <td><%= paper.user.name %></td>
-            <td><%= link_to "タイトル", "/papers/#{paper.id}" %></td>
-            <td><%= paper.content %></td>
-            <td>タグ</td>
+            <td><%= link_to "#{paper.title}", "/papers/#{paper.id}" %></td>
+            <td>
+              <% if paper.content %>
+                <%= paper.content %>
+              <% end %>            
+            </td>
+            <td>
+              <% if paper.tag %>
+                <%= paper.tag %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </table>
@@ -110,11 +129,11 @@
       <img class="img-fluid" src="/main2.jpg" alt="サポート">
     </aside>
   </div>
-
-  <h3 class="text-center my-4">『Ronbu』の使い方</h3>
-  <h4 class="text-center my-3">①会員登録</h4>
-  <h4 class="text-center my-3">②論文登録</h4>
-  <h4 class="text-center my-3">③論文のジャンル登録</h4>
+  <div class="my-4">
+    <h3 class="text-center my-4">『Ronbu』の使い方</h3>
+    <h4 class="text-center my-3">①会員登録</h4>
+    <h4 class="text-center my-3">②論文登録</h4>
+  </div>
 
   <div class="row">
     <div class="col-sm-12">

@@ -49,7 +49,7 @@ class PapersController < ApplicationController
   private
 
   def paper_params
-    params.require(:paper).permit(:content, :pdf)
+    params.require(:paper).permit(:title, :tag, :content, :pdf)
   end
 
   def correct_user

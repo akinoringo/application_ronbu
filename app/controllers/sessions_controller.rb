@@ -14,6 +14,16 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guestlogin
+    if glogin
+      flash[:success] = "ログインに成功しました。"
+      redirect_to @user
+    else
+      flash.now[:danger] = "ログインに失敗しました。"
+      render :new
+    end
+  end  
+
   def destroy
     session[:user_id] = nil
     flash[:success] = "ログアウトしました"
@@ -31,4 +41,17 @@ class SessionsController < ApplicationController
       return false
     end
   end
+
+  def glogin
+    @user = User.find_or_create_by!(email: "guest@example.com")
+    @user.password = SecureRandom.urlsafe_base64
+    if @user && @user.authenticate(@user.password)
+      session[:user_id] = @user.id
+      return true
+    else
+      return false
+    end
+  end
+
+
 end
