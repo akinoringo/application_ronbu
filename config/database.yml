@@ -48,7 +48,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: ronbu_production
   username: ronbu
   password: <%= ENV['RONBU_DATABASE_PASSWORD'] %>
