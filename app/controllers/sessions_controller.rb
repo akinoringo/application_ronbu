@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
   end
 
   def glogin
-    @user = User.find_or_create_by!(email: "guest@example.com")
+    @user = User.find_or_create_by!(email: "guest@akinori.com")
     @user.password = SecureRandom.urlsafe_base64
     if @user && @user.authenticate(@user.password)
       session[:user_id] = @user.id
