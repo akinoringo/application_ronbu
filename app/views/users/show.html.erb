@@ -1,4 +1,4 @@
-<div class="pb-5">
+<div class="py-5">
   <h2 class="text-center">マイプロフィール</h2>
 </div>
 <div class="row mb-4">
@@ -17,7 +17,6 @@
       <% if current_user == @user %>
         <%= link_to 'プロフィール編集', edit_user_path(@user), class: "mb-2 text-center" %>
       <% end %>
-      <%= link_to "download", "/users/#{@user.id}/download" %>
     </div>
   </aside>
 </div>

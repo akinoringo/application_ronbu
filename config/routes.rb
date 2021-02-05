@@ -10,8 +10,7 @@ Rails.application.routes.draw do
 
 
   get "signup", to: "users#new"
-
-  get "users/:id/download", to: "users#download"
+  
 
   get "papers/:id/download", to: "papers#download"
 

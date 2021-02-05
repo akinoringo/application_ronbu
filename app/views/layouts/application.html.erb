@@ -19,16 +19,9 @@
 
   <body>
 
-    <div class="container min-vh-100">
-      <% if logged_in? %>
-        <header class="mb-4">
-          <%= render 'layouts/navbar' %>
-        </header>
-      <% else %>
-        <header>
-          <%= render 'layouts/navbar' %>
-        </header>
-      <% end %>
+    <div class="container-rev min-vh-100">
+      <%= render 'layouts/navbar' %>
+
       <%= render 'layouts/flash_messages' %>
       
       <%= yield %>

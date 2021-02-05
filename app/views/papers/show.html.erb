@@ -1,4 +1,4 @@
-<div class="text-center pb-5">
+<div class="text-center py-5">
   <h1>論文詳細</h1>
 </div>
 
@@ -21,6 +21,7 @@
 </table>
 <% if current_user == @paper.user %>
   <div class="text-right mb-2">
-    <%= link_to '編集する', edit_paper_path(@paper) %>
+    <%= link_to '編集する', edit_paper_path(@paper), class: "mx-2" %>
+    <%= link_to '削除する', @paper, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: "mx-2" %>
   </div>
 <% end %>

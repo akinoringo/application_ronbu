@@ -1,10 +1,13 @@
 <% if logged_in? %>
-  <div class="pb-5">
-    <h2 class="text-center">論文一覧</h2>
+  <div class="py-5">
+    <h2 class="text-center">論文管理</h2>
   </div>
 
-  <div class="row">
-    <aside class="col-sm-12 mb-4">
+
+
+  <div class="row SideSpace">
+
+    <aside class="col-md-4 mb-4">
       <%= form_with(model: @paper, local: true) do |f| %>
         <div class="form-group">
           <%= f.label :title, 'タイトル' %>
@@ -32,11 +35,12 @@
 
    
 
-    <div class="col-sm-12">
+    <div class="col-md-8">
 
-      <div class="mb-4 text-right">
+      <div class="mb-4 text-right SideSpace">
 
         <%= form_tag("/", :method => 'get' ) do %>
+          <span>論文検索</span>
           <%= text_field_tag :search %>
           <%= submit_tag 'Search', :name => nil %>
         <% end %>   
@@ -72,75 +76,40 @@
   </div>
 <% else %>
   <div class="center jumbotron-extend">
-    <div class="row opacity05">
-      <div class="col-sm-7 offset-sm-1 bg-light rounded py-2 margin-top">
-        <div class="text-center py-4">
-          <h3>『Ronbu』で、論文管理をもっと簡単に。</h3>
-        </div>
+    <h1 class="text-center pt-5 py-4 font-weight-bold" style="color: white;">『Ronbu』は、あなたの論文管理をサポートします。</h1>
 
-        <%= form_with(model: @user, local: true) do |f| %>
-          <%= render "layouts/error_messages", model: f.object %>
-          
-          <div class="form-group">
-            <%= f.label :name, '名前' %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>  
-
-          <div class="form-group">
-            <%= f.label :email, 'メールアドレス' %>
-            <%= f.email_field :email, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password, 'パスワード' %>
-            <%= f.password_field :password, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password_confirmation, 'パスワード再入力' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-
-          <%= f.submit '会員登録', class: 'btn btn-primary btn-block' %>
-        <% end %>
-      </div>
-    </div>
   </div>
 
-  <h2 class="py-4 bg-light">『Ronbu』は、あなたの論文管理をサポートします。</h2>
+  
 
   <h3 class="text-center my-4">『Ronbu』の特徴</h3>
 
-  <div class="row">
-    <aside class="col-sm-6">
-      <img class="img-fluid" src="/main2.jpg" alt="サポート">
+  <div class="row mx-auto">
+    <aside class="col-md-6">
+      <img class="img-fluid" src="/main4.jpg" alt="サポート">
     </aside>
-    <aside class="col-sm-6">
-      <h4 class="text-center">論文管理はアプリに任せて</h4>
-      <p class="text-center">PDFの論文をすぐに保存出来るから安心</p>
+    <aside class="col-md-6">
+    <div class="text-center mx-auto my-4" style="width: 84%;">
+      <h4 class="font-weight-bold my-3">論文管理をスマートに</h4>
+      <h5>タイトル、著者、ジャンル、補足説明を登録可能。<br>登録した論文はいつでもダウンロードできる。</h5>
+    </div>
+
     </aside>
   </div>
-  <div class="row">
-    <aside class="col-sm-6">
-      <h4 class="text-center">論文管理はアプリに任せて</h4>
-      <p class="text-center">PDFの論文をすぐに保存出来るから安心</p>
+  <div class="row mx-auto">
+    <aside class="col-md-6">
+      <div class="text-center mx-auto my-4" style="width: 84%;">
+        <h4 class="font-weight-bold my-3">使い方はとってもシンプル</h4>
+        <h5 class="my-3">①会員登録</h5>
+        <h5 class="my-3">②論文登録</h5>
+        <h5 class="my-3">③論文管理(検索、編集)</h5>
+      </div>
     </aside>
-    <aside class="col-sm-6">
+    <aside class="col-md-6">
       <img class="img-fluid" src="/main2.jpg" alt="サポート">
     </aside>
   </div>
   <div class="my-4">
-    <h3 class="text-center my-4">『Ronbu』の使い方</h3>
-    <h4 class="text-center my-3">①会員登録</h4>
-    <h4 class="text-center my-3">②論文登録</h4>
+    <h3 class="text-center my-4">もう論文管理で苦労するのはここまで</h3>
   </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <img class="img-fluid" src="/main3.jpg" alt="サポート">
-    </div>
-  </div>
-
-
-
 <% end %>

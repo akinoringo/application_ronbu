@@ -7,6 +7,8 @@ class Paper < ApplicationRecord
 
   def self.search(search)
     return Paper.all unless search
-    Paper.where(['content LIKE ?', "%#{search}%"])
+    Paper.where(['title LIKE ?', "%#{search}%"])
   end
+
+
 end

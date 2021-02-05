@@ -26,6 +26,8 @@
 
 .container-rev {
   width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .margin-top {
@@ -34,4 +36,13 @@
 
 body {
   min-height: 100vh;
+}
+
+.SideSpace {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.alert {
+  margin-bottom: 0;
 }
