@@ -42,10 +42,27 @@ class SessionsController < ApplicationController
     end
   end
 
+  def gloginp
+    @user = User.find_or_create_by!(email: "guests@example.com") do |user|
+      user.name = "guest2"
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
+    end
+    @user = User.find_by(email: "guests@example.com")
+    if @user
+      session[:user_id] = @user.id
+      return true
+    else
+      return false
+    end
+
+
+  
+
+  end
   def glogin
-    @user = User.find_or_create_by!(email: "guest@akinori.com")
-    @user.password = SecureRandom.urlsafe_base64
-    if @user && @user.authenticate(@user.password)
+    @user = User.find_by(email: "guest@example.com")
+    if @user
       session[:user_id] = @user.id
       return true
     else
