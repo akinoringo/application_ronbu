@@ -1,8 +1,8 @@
-# 論文管理アプリ『Ronbu』
+# Application of paper manegement：『Ronbu』
 
-1. アプリケーションの概要
-  このアプリケーションは、研究者をターゲットとした、論文の管理が容易にできるアプリケーションです。
-  会員登録すれば、プロフィールの設定および論文の投稿、編集、削除が可能となります。
+1. Overvies of 『Ronbu』
+  This application is targeted at researchers and makes it easy to manage papers.
+  If you register as a member, you can set your profile and submit, edit, and delete papers.
 
 1. Development Environment
   -Infrastracture as code ：Heroku
