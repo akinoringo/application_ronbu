@@ -9,7 +9,7 @@
   2. Database               ：PostgreSQL
   3. Programing language    ：Ruby ver. 2.6.6
   4. Framework              ：Rails ver. 2.4.4.4
-  5. Storage                ：Active Storage, AWSのS3
+  5. Storage                ：Active Storage, AWSS3
   
 ## Functions
   1. User Signup
