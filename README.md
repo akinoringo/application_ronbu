@@ -5,21 +5,21 @@
   If you register as a member, you can set your profile and submit, edit, and delete papers.
 
 ## Development Environment
-  *Infrastracture as code ：Heroku
-  *Database               ：PostgreSQL
-  *Programing language    ：Ruby ver. 2.6.6
-  *Framework              ：Rails ver. 2.4.4.4
-  *Storage                ：Active Storage, AWSのS3
+  1. Infrastracture as code ：Heroku
+  2. Database               ：PostgreSQL
+  3. Programing language    ：Ruby ver. 2.6.6
+  4. Framework              ：Rails ver. 2.4.4.4
+  5. Storage                ：Active Storage, AWSのS3
   
 ## Functions
-  *User Signup
-  *Profile Image Setting(Active Storage, AWS/S3)
-  *User Login
-  *Guest Login
-  *CRUD oparation of Papers
-  *Posting PDF of papers
-  *Searching Papers
-  *Pagination(kaminari)
+  1. User Signup
+  2. Profile Image Setting(Active Storage, AWS/S3)
+  3. User Login
+  4. Guest Login
+  5. CRUD oparation of Papers
+  6. Posting PDF of papers
+  7. Searching Papers
+  8. Pagination(kaminari)
 
 ## Developer
   Akinori Matsumoto
