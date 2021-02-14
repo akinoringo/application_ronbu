@@ -12,5 +12,5 @@ amazon:
   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
   # 以下２行は変える
-  region: un-east-1 #東京
+  region: us-east-1 #東京
   bucket: ronbu-storage #自分で作成したS3のバケットの名前
