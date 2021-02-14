@@ -42,9 +42,17 @@ class PapersController < ApplicationController
   end
 
   def download
+
     @paper = Paper.find_by(id: params[:id])
-    data = @paper.pdf.download
-    send_data(data, filename: "download.pdf")
+
+    region = "us-east-1"
+    bucket = "ronbu-storage"
+    key = @paper.pdf.filename
+    s3_client = Aws::S3::Client.new(region: region)
+
+    data = client.get_object(bucket: bucket, key: key)
+    send_data(data, filename: download.pdf)
+
   end  
 
   private
