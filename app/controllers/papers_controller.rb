@@ -50,7 +50,7 @@ class PapersController < ApplicationController
     key = @paper.pdf.filename
     s3_client = Aws::S3::Client.new(region: region)
 
-    data = client.get_object(bucket: bucket, key: key)
+    data = client.get_object(bucket: bucket, key: key).body
     send_data(data, filename: download.pdf)
 
   end  

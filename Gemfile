@@ -53,4 +53,5 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
 
+gem 'mini_magick'
 gem "aws-sdk-s3", require: false #追記
